@@ -14,9 +14,225 @@
   --muted:#6d7885;
   --border:rgba(0,0,0,.08);
   --shadow:0 10px 30px rgba(0,0,0,.08);
-  --accent:#2a58
+  --accent:#2a5885;
+  --accent2:#3d7bfd;
+  --radius:18px;
+  --container:1100px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(61,123,253,.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(42,88,133,.18), transparent 55%),
+    var(--bg);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--container), calc(100% - 32px)); margin:0 auto}
 
+/* Topbar */
+.topbar{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter: blur(10px);
+  background: rgba(245,246,248,.72);
+  border-bottom:1px solid var(--border);
+}
+.topbar__inner{
+  display:flex; align-items:center;
+  padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-weight:800;
+}
+.logo{
+  width:36px; height:36px; border-radius:12px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  box-shadow:0 10px 20px rgba(42,88,133,.25);
+}
+.brand__tag{
+  color:var(--muted);
+  font-weight:700;
+  font-size:13px;
+  margin-left:6px;
+}
+@media (max-width:920px){
+  .brand__tag{display:none}
+}
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 16px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:var(--card);
+  box-shadow:0 6px 16px rgba(0,0,0,.06);
+  font-weight:800;
+  cursor:pointer;
+  transition:.15s;
+}
+.btn:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,.1)}
+.btn--primary{
+  border:none;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  color:#fff;
+}
+
+/* Hero */
+.hero{padding:44px 0}
+.grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero__left{padding:28px}
+.pill{
+  display:inline-flex; gap:8px; align-items:center;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,.02);
+  color:var(--muted);
+  font-weight:800;
+  font-size:13px;
+}
+.dot{
+  width:8px; height:8px; border-radius:50%;
+  background:#21c55d;
+  box-shadow:0 0 0 4px rgba(33,197,93,.12);
+}
+h1{
+  margin:18px 0 12px;
+  font-size:clamp(30px,3.2vw,46px);
+  line-height:1.1;
+  letter-spacing:-.6px;
+}
+.sub{
+  margin:0;
+  color:var(--muted);
+  font-size:17px;
+  max-width:60ch;
+}
+.badge{
+  margin-top:16px;
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:14px;
+  background:rgba(61,123,253,.12);
+  border:1px solid rgba(61,123,253,.18);
+  color:#2757c7;
+  font-weight:900;
+}
+.cta{
+  display:flex; gap:12px; flex-wrap:wrap;
+  margin-top:20px;
+}
+.legal{
+  margin-top:14px;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:650;
+}
+
+/* Right block */
+.hero__right{
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  gap:16px;
+}
+.icon-wrap{
+  width:120px;
+  height:120px;
+  border-radius:28px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, rgba(61,123,253,.14), rgba(42,88,133,.08));
+  border:1px solid rgba(0,0,0,.08);
+}
+.icon-wrap span{
+  font-size:52px;
+}
+.right-title{
+  font-weight:800;
+  font-size:16px;
+}
+.right-text{
+  color:var(--muted);
+  font-size:14px;
+  max-width:28ch;
+}
+
+/* Responsive */
+@media (max-width:920px){
+  .grid{grid-template-columns:1fr}
+  .btn{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="brand">
+      <div class="logo"></div>
+      <span>Юридическая помощь</span>
+      <span class="brand__tag">Официально. Конфиденциально.</span>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container grid">
+
+    <!-- LEFT -->
+    <div class="card hero__left">
+      <div class="pill"><span class="dot"></span> Бесплатная консультация</div>
+
+      <h1>Юридическая помощь<br>в получении водительских прав</h1>
+
+      <p class="sub">
+        Спокойно разберём вашу ситуацию и подскажем возможные варианты действий.
+      </p>
+
+      <div class="badge">Ответим в удобном мессенджере</div>
+
+      <div class="cta">
+        <a class="btn btn--primary" href="https://t.me/USERNAME" target="_blank">💬 Написать в Telegram</a>
+        <a class="btn" href="https://wa.me/79999999999" target="_blank">💬 Написать в WhatsApp</a>
+      </div>
+
+      <div class="legal">
+        Консультация предоставляется бесплатно. Дальнейшая помощь — по согласованию.
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <aside class="card hero__right">
+      <div class="icon-wrap">
+        <span>⚖️</span>
+      </div>
+      <div class="right-title">Юридическая консультация</div>
+      <div class="right-text">
+        Без обещаний невозможного. Только аккуратное и понятное разъяснение.
+      </div>
+    </aside>
+
+  </div>
+</header>
+
 </body>
 </html>
