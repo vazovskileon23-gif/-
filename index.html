@@ -1,12 +1,130 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Юридическая помощь — водительские права</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Юридическая помощь — водительские права</title>
+  <meta name="description" content="Юридическая помощь в получении водительских прав. Легально. Бесплатная консультация." />
+  <style>
+    :root{--bg:#f5f6f8;--card:#fff;--text:#1d1f23;--muted:#6d7885;--border:rgba(0,0,0,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.08);--accent:#2a5885;--accent2:#3d7bfd;--radius:18px;--container:1100px;}
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      background:radial-gradient(1200px 600px at 10% -10%, rgba(61,123,253,.18), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(42,88,133,.18), transparent 55%),var(--bg);}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--container), calc(100% - 32px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(245,246,248,.72);border-bottom:1px solid var(--border);}
+    .topbar__inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));box-shadow:0 10px 20px rgba(42,88,133,.25);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:14px;border:1px solid var(--border);
+      background:var(--card);box-shadow:0 6px 16px rgba(0,0,0,.06);font-weight:800;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;white-space:nowrap;}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(0,0,0,.10)}
+    .btn--primary{border-color:transparent;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;box-shadow:0 14px 30px rgba(42,88,133,.25);}
+    .hero{padding:44px 0 24px}
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:stretch}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);}
+    .hero__left{padding:24px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+      background:rgba(0,0,0,.02);color:var(--muted);font-weight:800;font-size:13px;}
+    .dot{width:8px;height:8px;border-radius:999px;background:#21c55d;box-shadow:0 0 0 4px rgba(33,197,93,.12)}
+    h1{margin:14px 0 10px;font-size:clamp(30px,3.2vw,46px);line-height:1.08;letter-spacing:-.6px}
+    .sub{margin:0;color:var(--muted);font-size:17px;max-width:60ch}
+    .micro{margin:12px 0 0;color:#244b73;background:rgba(42,88,133,.06);border:1px dashed rgba(42,88,133,.30);padding:10px 12px;border-radius:14px;font-weight:700;font-size:13px;display:inline-block;}
+    .badge{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 12px;border-radius:14px;background:rgba(61,123,253,.12);
+      border:1px solid rgba(61,123,253,.18);color:#2757c7;font-weight:900;width:fit-content;}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .hero__right{padding:18px;display:flex;flex-direction:column;gap:12px}
+    .mini{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.75);padding:14px}
+    .mini b{display:block;margin-bottom:6px}
+    .mini p{margin:0;color:var(--muted)}
+    .art{display:grid;place-items:center;min-height:220px;border:1px dashed rgba(0,0,0,.12);border-radius:14px;background:rgba(0,0,0,.02);position:relative;overflow:hidden}
+    .art .hint{position:absolute;bottom:10px;left:12px;right:12px;color:var(--muted);font-size:12px;font-weight:700}
+    .icons{display:flex;gap:14px;align-items:center}
+    .ico{width:86px;height:86px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(61,123,253,.16), rgba(42,88,133,.10));
+      border:1px solid rgba(0,0,0,.08);font-size:38px}
+    .below{padding:0 0 34px}
+    .how{padding:18px}
+    .how h2{margin:0 0 10px;font-size:20px;letter-spacing:-.2px}
+    .steps{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .steps li{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.8)}
+    .num{width:28px;height:28px;border-radius:10px;display:grid;place-items:center;background:rgba(42,88,133,.10);border:1px solid rgba(42,88,133,.16);color:#244b73;font-weight:900;flex:0 0 auto}
+    .legal{margin-top:12px;color:var(--muted);font-size:12px;font-weight:650}
+    footer{padding:18px 0 36px;color:var(--muted)}
+    .footer{border-top:1px solid var(--border);padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    @media (max-width: 920px){.grid{grid-template-columns:1fr}.hero{padding-top:28px}.btn{width:100%}}
+  </style>
 </head>
 <body>
-<h1>Юридическая помощь в получении водительских прав</h1>
-<p>Легально. Официально. По закону.</p>
-<a href="contacts.html">Перейти к контактам</a>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Юридическая помощь</span>
+      </a>
+      <a class="btn btn--primary" href="./contacts.html">Перейти к контактам</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container grid">
+      <div class="card hero__left">
+        <div class="pill"><span class="dot"></span> VK-style • аккуратно и понятно</div>
+        <h1>Юридическая помощь<br>в получении водительских прав</h1>
+        <p class="sub">Легально. Официально. По закону.</p>
+        <div class="micro">⚖️ Юридическая консультация по вопросам водительских прав</div>
+        <div class="badge">🟦 Бесплатная консультация</div>
+
+        <div class="cta">
+          <a class="btn btn--primary" href="./contacts.html">Перейти к контактам</a>
+          <a class="btn" href="#how">Как получить консультацию</a>
+        </div>
+
+        <div class="legal">
+          Консультация предоставляется бесплатно. Дальнейшая юридическая помощь осуществляется в рамках действующего законодательства РФ.
+        </div>
+      </div>
+
+      <aside class="card hero__right" aria-label="Визуал">
+        <div class="mini">
+          <b>Визуал = как в креативе</b>
+          <p>Справа разместить ⚖️ весы и 🪪 водительское удостоверение в спокойной композиции.</p>
+        </div>
+        <div class="art">
+          <div class="icons" aria-hidden="true">
+            <div class="ico">⚖️</div>
+            <div class="ico">🪪</div>
+          </div>
+          <div class="hint">Замените эту заглушку на вашу картинку из креатива</div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="below" id="how">
+    <div class="container">
+      <div class="card how">
+        <h2>Как получить консультацию</h2>
+        <ul class="steps">
+          <li><span class="num">1</span><div><b>Перейдите на страницу контактов</b><br><span style="color:var(--muted);font-weight:650">Выберите удобный способ связи</span></div></li>
+          <li><span class="num">2</span><div><b>Опишите вашу ситуацию</b><br><span style="color:var(--muted);font-weight:650">Коротко и по делу</span></div></li>
+          <li><span class="num">3</span><div><b>Получите бесплатную консультацию</b><br><span style="color:var(--muted);font-weight:650">Разъясним возможные законные варианты действий</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer">
+      <div>© <span id="y"></span> Юридическая помощь</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="./contacts.html">Контакты</a>
+        <a href="#" onclick="alert('Добавьте ссылку на политику конфиденциальности'); return false;">Политика</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
