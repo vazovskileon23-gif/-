@@ -192,6 +192,38 @@ h1{
   font-weight:900;
 }
 
+/* ===== ADDED: About + Footer (minimal, doesn't affect existing layout) ===== */
+.about{
+  margin-top:18px;
+  padding:14px 14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,.02);
+}
+.about__title{
+  font-weight:900;
+  margin:0 0 6px 0;
+}
+.about__text{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  font-weight:650;
+  max-width:80ch;
+}
+.site-footer{
+  padding:18px 0 26px;
+  color:var(--muted);
+  font-size:12px;
+}
+.site-footer__inner{
+  border-top:1px solid var(--border);
+  padding-top:14px;
+  display:flex;
+  justify-content:center;
+  text-align:center;
+}
+
 /* Responsive */
 @media (max-width:920px){
   .grid{grid-template-columns:1fr}
@@ -243,6 +275,15 @@ h1{
           💬 Получить консультацию в WhatsApp
         </a>
       </div>
+
+      <!-- ADDED: About us block -->
+      <section class="about" aria-label="О нас">
+        <p class="about__title">О нас</p>
+        <p class="about__text">
+          Мы помогаем разобраться в вопросах, связанных с водительскими правами, и подсказываем возможные законные варианты действий.
+          Консультации проводятся онлайн в индивидуальном формате. Связь — через Telegram и WhatsApp.
+        </p>
+      </section>
 
       <div class="legal">
         Консультация предоставляется бесплатно. Дальнейшая помощь — по согласованию.<br>
@@ -323,6 +364,13 @@ h1{
   </div>
 </header>
 
+<!-- ADDED: Footer -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    © 2025. Юридическая консультация по вопросам водительских прав. Онлайн.
+  </div>
+</footer>
+
 <!-- фикс-кнопка WhatsApp снизу — только на мобилках -->
 <div class="wa-fixed">
   <a class="btn btn--whatsapp"
@@ -350,3 +398,4 @@ _tmr.push({id: "3727789", type: "pageView", start: (new Date()).getTime()});
 
 </body>
 </html>
+
